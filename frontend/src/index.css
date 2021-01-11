@@ -1,0 +1,25 @@
+* {
+  text-decoration: none !important;
+  line-height: 1.6 !important;
+  letter-spacing: 3px !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  min-height: 80vh;
+
+}
+
+.background_img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.699), rgba(0, 0, 0, 0.897)),
+    url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  height: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.star {
+  color: rgba(207, 100, 81, 0.993) !important;
+}
