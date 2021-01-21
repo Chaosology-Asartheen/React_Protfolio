@@ -173,11 +173,13 @@ export default function HomeScreen() {
           <Message variant="info">{error}</Message>
         ) : projects.length ? (
           <>
-            {projects.map((project) => (
-              <Col sm={12} md={6} lg={4} key={project._id}>
-                <Project project={project} />
-              </Col>
-            ))}
+            {projects
+              .map((project) => (
+                <Col sm={12} md={6} lg={4} key={project._id}>
+                  <Project project={project} />
+                </Col>
+              ))
+              .reverse()}
           </>
         ) : (
           <Message>No project uploaded yet</Message>
