@@ -18,6 +18,9 @@ import Project from "../layout/Project";
 import { getProjectList } from "../../redux/actions/projectAction";
 import ContactForm from "../layout/ContactForm";
 // import { Link } from "react-router-dom";
+
+
+
 export default function HomeScreen() {
   AOS.init();
   //////////////////////////////

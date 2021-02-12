@@ -1,44 +1,37 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import FormContainer from "../layout/FormContainer";
 import { Form, Button } from "react-bootstrap";
-import {useDispatch, useSelector} from 'react-redux'
-import Loader from "../layout/Loader"
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../layout/Loader";
 import Message from "../layout/Message";
-import {login} from '../../redux/actions/userAction'
+import { login } from "../../redux/actions/userAction";
 
+export default function LoginScreen({ history, location }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-export default function LoginScreen({history, location}) {
+  /**
+   *  Bring the dispatch and use
+   */
 
-const [email, setEmail] = useState("")
-const [password, setPassword] = useState("")
-
-/**
- *  Bring the dispatch and use
- */
-
- const dispatch = useDispatch()
- const userLogin = useSelector((state)=>state.userLogin)
- const {loading, error, userInfo} = userLogin
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo } = userLogin;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
-  useEffect(()=>{
-    if(userInfo && userInfo.name) {
-      history.push(redirect)
+  useEffect(() => {
+    if (userInfo && userInfo.name) {
+      history.push(redirect);
+    } else {
+      history.push("/login");
     }
-    else{
-      history.push("/login")
-    }
-  },[userInfo, history, redirect])
+  }, [userInfo, history, redirect]);
 
+  const submitHander = (e) => {
+    e.preventDefault();
 
-const submitHander = (e)=>{
-  e.preventDefault()
-  dispatch(login(email, password))
-}
-
-
-
-
+    dispatch(login(email, password));
+  };
   return (
     <FormContainer>
       <h1 className="py-5">Login</h1>
@@ -66,6 +59,7 @@ const submitHander = (e)=>{
             }}
           />
         </Form.Group>
+
         <Button variant="primary" type="submit">
           Login
         </Button>
